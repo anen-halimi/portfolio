@@ -72,7 +72,7 @@
       "kind": "Dataset · Incrustation IA · Ferroviaire",
       "title": "Créer des données rares.<br>Préserver le <em>réel.</em>",
       "shortTitle": "Incrustation d’objets IA — CCTV train",
-      "description": "Un pipeline de génération de données d’entraînement qui ajoute passagers et objets encombrants dans des images de vidéosurveillance ferroviaire. Le résultat ci-dessus compare la frame de référence à la frame incrustée.",
+      "description": "Un pipeline de génération de données d’entraînement qui ajoute passagers et objets encombrants dans des images de vidéosurveillance ferroviaire. Le résultat ci-dessus compare une rame sans matelas à la même frame avec un matelas clairement incrusté.",
       "tags": ["Python", "Qwen", "ComfyUI", "Inpainting", "YOLO", "OpenCV"],
       "repo": "incrustation-work",
       "file": "incruste_one.py",
