@@ -1,0 +1,223 @@
+{
+  "name": "Anen Halimi",
+  "linkedin": "https://www.linkedin.com/in/anen-halimi-55499b262/",
+  "github": "https://github.com/anen-halimi",
+  "email": "",
+  "focus": "all",
+  "customTitle": "",
+  "customPitch": "",
+  "company": "",
+  "startup": "Startup · Tunisie",
+  "startupDescription": "Plus de deux ans d’expérience en startup, avant mon parcours à la SNCF. Une autre échelle d’organisation, au sein d’un environnement entrepreneurial en Tunisie.",
+  "sncfDescription": "Trois ans d’expérience à la SNCF. Mon parcours s’inscrit dans l’intelligence artificielle appliquée au domaine ferroviaire, avec des travaux autour de la vision par ordinateur et de l’IA générative.",
+  "exported": false,
+  "profiles": {
+    "all": {
+      "label": "Vue d’ensemble",
+      "title": "Ingénieur senior Data & IA",
+      "headline": "De la complexité<br>à l’<em>intelligence utile.</em>",
+      "pitch": "Je relie les modèles, les données et le logiciel pour construire des applications concrètes. Vision par ordinateur, IA générative, automatisation : un même fil conducteur, faire fonctionner les idées dans leur contexte réel.",
+        "order": [
+          "openspace",
+          "bordereaux",
+          "passagers",
+          "style",
+          "incrustation"
+        ]
+    },
+    "vision": {
+      "label": "Computer Vision",
+      "title": "Ingénieur senior Computer Vision",
+      "headline": "Donner du sens<br>à chaque <em>image.</em>",
+      "pitch": "De la calibration des caméras au suivi d’objets, je développe des chaînes de vision par ordinateur. Mon approche relie les modèles YOLO, la géométrie des images et les interfaces dont les utilisateurs ont besoin.",
+        "order": [
+          "openspace",
+          "passagers",
+          "incrustation",
+          "style",
+          "bordereaux"
+        ]
+    },
+    "data": {
+      "label": "Data & automatisation",
+      "title": "Ingénieur senior Data & automatisation",
+      "headline": "Des données brutes<br>aux <em>outils utiles.</em>",
+      "pitch": "Je transforme les documents et les flux de données en informations structurées. Extraction OCR, traitements Python, consolidation et interfaces : je construis la chaîne qui rend les données exploitables.",
+        "order": [
+          "bordereaux",
+          "openspace",
+          "incrustation",
+          "passagers",
+          "style"
+        ]
+    },
+    "genai": {
+      "label": "IA générative",
+      "title": "Ingénieur senior IA générative & vision",
+      "headline": "Explorer les modèles.<br>Élargir le <em>possible.</em>",
+      "pitch": "J’expérimente les modèles de diffusion pour transformer l’apparence de séquences vidéo. Je relie la recherche en IA générative aux contraintes d’un cas d’usage : cohérence temporelle, données d’entrée et ressources GPU.",
+        "order": [
+          "style",
+          "incrustation",
+          "passagers",
+          "openspace",
+          "bordereaux"
+        ]
+    }
+  },
+  "projects": [
+    {
+      "id": "incrustation",
+      "number": "05",
+      "kind": "Dataset · Incrustation IA · Ferroviaire",
+      "title": "Créer des données rares.<br>Préserver le <em>réel.</em>",
+      "shortTitle": "Incrustation d’objets IA — CCTV train",
+      "description": "Un pipeline de génération de données d’entraînement qui ajoute passagers et objets encombrants dans des images de vidéosurveillance ferroviaire.",
+      "tags": ["Python", "Qwen", "ComfyUI", "Inpainting", "YOLO", "OpenCV"],
+      "repo": "incrustation-work",
+      "file": "incruste_one.py",
+      "challenge": "Produire des exemples réalistes sans réécrire toute la scène. Un objet ajouté doit respecter la place, la perspective, la lumière, le flou et les artefacts propres à la caméra du train.",
+      "approach": [
+        "Inpainting Qwen masqué pour limiter l’édition à la zone ou à la place choisie.",
+        "Harmonisation locale de la luminosité, du dégradé d’éclairage, de la netteté et de la texture capteur.",
+        "Génération de labels YOLO à partir de l’image finale, avec contrôle visuel et repli sur les pixels modifiés.",
+        "Banques de positions et d’objets : passager porteur, vélo, trottinette, valise, plante, matelas ou téléviseur.",
+        "Scripts de sélection de frames, construction de datasets et catalogue pour rendre les itérations traçables."
+      ],
+      "outcome": "Une chaîne complète, de la frame CCTV originale au dataset annoté. Le périmètre hors zone reste préservé et les objets sont adaptés aux conditions de prise de vue de chaque frame.",
+      "limit": "La qualité dépend du modèle, du calibrage de la ROI, de la source vidéo et de la vérification humaine. Les checkpoints et vidéos sources restent hors du dépôt GitHub.",
+      "pipeline": ["Frame CCTV", "ROI masquée", "Qwen / ComfyUI", "Harmonisation", "YOLO / Dataset"]
+    },
+    {
+      "id": "openspace",
+      "number": "01",
+      "kind": "Application · Computer Vision",
+      "title": "Compter des personnes.<br>Comprendre un espace.",
+      "shortTitle": "OpenSpace People Counter",
+      "description": "Une application multi-caméras qui transforme les flux vidéo en comptages d’entrées, de sorties et d’occupation.",
+      "tags": [
+        "Python",
+        "YOLO",
+        "OpenCV",
+        "CUDA",
+        "Tracking"
+      ],
+      "repo": "openspace-people-counter",
+      "file": "openspace_compteur.py",
+      "challenge": "Passer d’une détection dans une image à un comptage utilisable. Il faut maintenir les identités dans le temps, définir les zones de passage et gérer plusieurs sources vidéo en parallèle.",
+      "approach": [
+        "Un processus indépendant par caméra pour séparer les chaînes d’acquisition et de traitement.",
+        "Détection ou segmentation Ultralytics, puis suivi avec ByteTrack ou BoT-SORT.",
+        "Calibration interactive des zones et lignes de comptage, exécution CPU ou CUDA.",
+        "Interface opérateur, seuil de capacité optionnel et exports JSON / XML."
+      ],
+      "outcome": "Le dépôt réunit une chaîne de traitement multi-caméras, une interface de lancement et des sorties structurées. L’utilisateur peut configurer les zones et suivre les compteurs.",
+      "limit": "La qualité dépend du placement des caméras, des occultations et des changements d’identité. Aucun débit ou taux de précision universel n’est annoncé.",
+      "pipeline": [
+        "Flux caméras",
+        "YOLO",
+        "Tracking",
+        "Franchissements",
+        "JSON / XML"
+      ]
+    },
+    {
+      "id": "bordereaux",
+      "number": "02",
+      "kind": "Data · Automatisation documentaire",
+      "title": "Des PDF techniques<br>aux données <em>exploitables.</em>",
+      "shortTitle": "Bordereaux · PDF → Excel",
+      "description": "Extraire, organiser et consolider des rapports techniques dans des classeurs Excel traçables.",
+      "tags": [
+        "Python",
+        "OCR",
+        "pandas",
+        "Flask",
+        "OpenCV"
+      ],
+      "repo": "Bordereaux",
+      "file": "interface_pdf_excel/app.py",
+      "challenge": "Les informations utiles sont dispersées dans des rapports PDF : titres, tableaux, mesures et documents numérisés. Les rendre exploitables exige de préserver les associations et la provenance.",
+      "approach": [
+        "Extraction du texte et des tableaux avec pdfplumber, OCR avec Tesseract.",
+        "Détection visuelle de titres avec OpenCV et association des tableaux à leurs sections.",
+        "Production de classeurs par document, consolidation globale et enrichissement Excel.",
+        "Interface Flask, traitement par lots séquentiel ou parallèle, suivi des journaux et téléchargement."
+      ],
+      "outcome": "Un flux complet de transformation documentaire, du dépôt des PDF jusqu’aux feuilles de synthèse consolidées, avec des références aux documents sources.",
+      "limit": "Les règles ciblent des rapports structurés. Une nouvelle mise en page ou un scan de mauvaise qualité peut nécessiter des ajustements et une vérification manuelle. L’interface actuelle est prévue pour un usage local.",
+      "pipeline": [
+        "PDF",
+        "Texte / OCR",
+        "Sections & tableaux",
+        "Consolidation",
+        "Excel"
+      ]
+    },
+    {
+      "id": "passagers",
+      "number": "03",
+      "kind": "Recherche appliquée · Multi-vues",
+      "title": "Plusieurs caméras.<br>Un même <em>passager.</em>",
+      "shortTitle": "Détection de passagers",
+      "description": "Explorer la détection de passagers et la suppression des doublons entre des vues qui se recouvrent.",
+      "tags": [
+        "YOLO",
+        "OpenCV",
+        "ORB",
+        "RANSAC",
+        "Homographie"
+      ],
+      "repo": "Comptage_Passagers",
+      "file": "doublons.py",
+      "challenge": "Quand deux caméras observent une même zone, une personne peut être comptée deux fois. Le défi relie apprentissage du détecteur, calibration et correspondances géométriques entre les vues.",
+      "approach": [
+        "Entraînement et inférence YOLO sur un jeu de données de passagers annoté.",
+        "Export d’images annotées et des coordonnées normalisées des détections.",
+        "Exploration du recouvrement des caméras avec ORB, appariement et homographie RANSAC.",
+        "Comparaison des détections et heuristiques de suppression des doublons entre vues."
+      ],
+      "outcome": "Un espace de recherche regroupant préparation des données, entraînement, calibration et analyse des détections communes à plusieurs caméras.",
+      "limit": "Une homographie ne résout pas tous les cas de personnes situées à des profondeurs différentes. Le dépôt rassemble plusieurs expérimentations et ne fournit pas de benchmark consolidé reproductible.",
+      "pipeline": [
+        "Images annotées",
+        "Détection YOLO",
+        "Géométrie",
+        "Appariement",
+        "Doublons"
+      ]
+    },
+    {
+      "id": "style",
+      "number": "04",
+      "kind": "IA générative · Vidéo",
+      "title": "Une scène ferroviaire.<br>De nouvelles <em>conditions.</em>",
+      "shortTitle": "Transfert de style vidéo",
+      "description": "Explorer les changements de météo, d’éclairage et d’apparence d’une vidéo à partir d’instructions textuelles.",
+      "tags": [
+        "PyTorch",
+        "Diffusion",
+        "TokenFlow",
+        "CUDA"
+      ],
+      "repo": "Transfert-de-Style",
+      "file": "run_tokenflow_pnp.py",
+      "challenge": "Modifier l’apparence d’une vidéo sans perdre toute sa structure ni introduire de fortes incohérences d’une image à l’autre. Les scènes ferroviaires servent de support aux expérimentations.",
+      "approach": [
+        "Préparation des images et inversion DDIM pour obtenir les représentations latentes.",
+        "Édition guidée par prompt et propagation des caractéristiques de diffusion avec TokenFlow.",
+        "Expérimentation des chemins Plug-and-Play et SDEdit, via des configurations YAML.",
+        "Comparaison qualitative des sorties selon les prompts et les réglages d’inférence."
+      ],
+      "outcome": "Des configurations et des résultats visuels archivés pour explorer le transfert de style sur des séquences ferroviaires. La comparaison présentée utilise deux images réellement présentes dans le dépôt.",
+      "limit": "Application de TokenFlow, méthode de Michal Geyer, Omer Bar-Tal, Shai Bagon et Tali Dekel. Ce travail ne revendique pas l’invention de la méthode. Les sorties sont des expérimentations qualitatives.",
+      "pipeline": [
+        "Images vidéo",
+        "Inversion DDIM",
+        "Prompt",
+        "TokenFlow",
+        "Vidéo éditée"
+      ]
+    }
+  ]
+}
