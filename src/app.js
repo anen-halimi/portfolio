@@ -27,7 +27,7 @@ function visual(p) {
     bordereaux:'<div class="document-flow">'+doc('')+'<span class="flow-arrow">→</span>'+doc('excel')+'</div>',
     passagers:'<div class="dual-view"><div class="view-panel"><i class="track"></i></div><div class="view-panel two"><i class="track"></i></div><div class="match-line"></div></div>',
     style:'<div class="style-preview"><img src="'+base.images.source+'" alt="" loading="lazy"><img src="'+base.images.style+'" alt="" loading="lazy"></div>',
-    incrustation:'<div class="screen insertion-screen"><div class="screen-top"><span>INCRUSTATION / CCTV TRAIN</span><span>MASK → LABEL</span></div><div class="screen-body"><div class="camera-view">'+tracks+'<small>FRAME ORIGINALE / ROI</small></div><div class="camera-view inserted">'+tracks+'<small>OBJET ADAPTÉ / YOLO</small></div></div></div>'
+    incrustation:'<img class="incrustation-result" src="'+base.images.incrustation+'" alt="Résultat du projet : comparaison entre la frame CCTV originale et la frame avec objet incrusté" loading="lazy">'
   };
   return '<div class="project-visual visual-'+p.id+'" aria-hidden="true">'+label+visuals[p.id]+'</div>';
 }
