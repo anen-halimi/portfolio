@@ -22,7 +22,8 @@
           "bordereaux",
           "passagers",
           "style",
-          "incrustation"
+          "incrustation",
+          "vae-nat"
         ]
     },
     "vision": {
@@ -35,7 +36,8 @@
           "passagers",
           "incrustation",
           "style",
-          "bordereaux"
+          "bordereaux",
+          "vae-nat"
         ]
     },
     "data": {
@@ -49,6 +51,7 @@
           "incrustation",
           "passagers",
           "style"
+          ,"vae-nat"
         ]
     },
     "genai": {
@@ -62,10 +65,33 @@
           "passagers",
           "openspace",
           "bordereaux"
+          ,"vae-nat"
         ]
     }
   },
   "projects": [
+    {
+      "id": "vae-nat",
+      "number": "06",
+      "kind": "R&D · Vision par ordinateur · Ferroviaire",
+      "title": "Détecter l’anomalie.<br>Avec une référence <em>vide.</em>",
+      "shortTitle": "VAE_NAT — Occupancy inspection",
+      "description": "Détection robuste de l’état EMPTY / OCCUPIED d’un wagon CCTV à partir d’une référence du même wagon vide.",
+      "tags": ["Python", "OpenCV", "Pixel diff", "StyleImage", "Jetson", "VLM"],
+      "repo": "VAE_NAT",
+      "file": "pipeline/pipeline_bank.py",
+      "challenge": "Une variation de lumière, un reflet ou un petit objet oublié peuvent tous modifier une frame fisheye. Le système doit distinguer une variation visuelle normale d’une présence réelle et produire une décision exploitable par un opérateur.",
+      "approach": [
+        "Comparer la frame courante à une référence du même wagon capturée à l’état vide.",
+        "Normaliser la luminance en LAB puis agréger la différence avec une banque de variantes StyleImage.",
+        "Filtrer les blobs par taille, solidité et forme géométrique pour écarter les changements diffus d’éclairage.",
+        "Réserver le VLM à la description et à la levée de doute après la détection déterministe.",
+        "Concevoir une cible d’exécution embarquée sur Jetson Orin Nano, sans réseau neuronal au runtime de la décision."
+      ],
+      "outcome": "Le dépôt documente une architecture de détection référencée, une banque de 13 conditions d’éclairage et des résultats d’ablation sur 74 frames annotées. Le cas illustré compare une référence vide avec une frame où une personne est visible.",
+      "limit": "Le dépôt est privé et lié à une démarche de protection : les détails sensibles, datasets bruts et caches de modèles ne sont pas diffusés. Les chiffres annoncés sont ceux du banc documenté et ne constituent pas une garantie générale.",
+      "pipeline": ["Référence vide", "StyleImage", "Pixel diff", "Blobs / VLM", "EMPTY / OCCUPIED"]
+    },
     {
       "id": "incrustation",
       "number": "05",

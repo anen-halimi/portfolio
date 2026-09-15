@@ -27,7 +27,8 @@ function visual(p) {
     bordereaux:'<div class="document-flow">'+doc('')+'<span class="flow-arrow">→</span>'+doc('excel')+'</div>',
     passagers:'<div class="dual-view"><div class="view-panel"><i class="track"></i></div><div class="view-panel two"><i class="track"></i></div><div class="match-line"></div></div>',
     style:'<div class="style-preview"><img src="'+base.images.source+'" alt="" loading="lazy"><img src="'+base.images.style+'" alt="" loading="lazy"></div>',
-    incrustation:'<div class="incrustation-pair"><figure><img src="'+base.images.incrustationSource+'" alt="Frame CCTV originale du train, sans matelas" loading="lazy"><figcaption>FRAME ORIGINALE · SANS OBJET</figcaption></figure><span class="pair-arrow">→</span><figure><img src="'+base.images.incrustationFinal+'" alt="Même frame CCTV avec matelas et passager incrustés" loading="lazy"><figcaption>RÉSULTAT · MATELAS INCRUSTÉ</figcaption></figure></div>'
+    incrustation:'<div class="incrustation-pair"><figure><img src="'+base.images.incrustationSource+'" alt="Frame CCTV originale du train, sans matelas" loading="lazy"><figcaption>FRAME ORIGINALE · SANS OBJET</figcaption></figure><span class="pair-arrow">→</span><figure><img src="'+base.images.incrustationFinal+'" alt="Même frame CCTV avec matelas et passager incrustés" loading="lazy"><figcaption>RÉSULTAT · MATELAS INCRUSTÉ</figcaption></figure></div>',
+    'vae-nat':'<div class="incrustation-pair"><figure><img src="'+base.images.vaeNatEmpty+'" alt="Référence CCTV du wagon vide" loading="lazy"><figcaption>RÉFÉRENCE · EMPTY</figcaption></figure><span class="pair-arrow">→</span><figure><img src="'+base.images.vaeNatOccupied+'" alt="Même wagon avec une personne détectée" loading="lazy"><figcaption>DÉTECTION · OCCUPIED</figcaption></figure></div>'
   };
   return '<div class="project-visual visual-'+p.id+'" aria-hidden="true">'+label+visuals[p.id]+'</div>';
 }
